@@ -1,6 +1,10 @@
 # Dashboard-Financeira-Para-Gest-o-Barbearia-El-PATRON
 Dashboard financeiro desenvolvido no Power BI para análise estratégica da El Patron Barbearia. O projeto consolida KPIs como faturamento, lucro, margem, ticket médio e desempenho por barbeiro, utilizando modelagem de dados e DAX para transformar dados operacionais em insights que apoiam a tomada de decisão.
 
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Data Analytics](https://img.shields.io/badge/Data_Analytics-0078D4?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Trabalhando-brightgreen?style=for-the-badge)
+
 
 
 📊 Dashboard Financeiro – El Patron Barbearia
