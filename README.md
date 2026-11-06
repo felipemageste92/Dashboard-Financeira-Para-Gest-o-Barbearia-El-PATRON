@@ -65,13 +65,13 @@ Ticket Médio = DIVIDE([Faturamento Total Produto/Serviço], [Qtd Serviços], 0)
 
 Faturamento Total: R$ 298,17 Mil
 
-Lucro Total: R$ 142,19 Mil
+Lucro Total: R$ 174,78 Mil
 
-Margem de Lucro: 47,69%
+Margem de Lucro: 58,62%
 
 Ticket Médio: R$ 95,05
 
-Total de Gastos: R$ 126,16 Mil
+Total de Gastos: R$ 123,39 Mil
 
 Esses indicadores permitem avaliar sustentabilidade financeira, rentabilidade e eficiência operacional.
 
@@ -139,7 +139,7 @@ Tooltips com métricas percentuais e comparativos
 
 📊 Principais Insights Estratégicos
 
-✔ Margem de lucro saudável (47,69%)
+✔ Margem de lucro saudável (58,62%)
 ✔ Alta dependência de um único barbeiro
 ✔ Forte crescimento histórico de clientes
 ✔ Comportamento sazonal identificado
@@ -163,15 +163,17 @@ Clusterização de clientes por comportamento
 
 💡 Tecnologias Utilizadas
 
+Excel
+
 Power BI
 
 DAX
 
-Modelagem Relacional
+Modelagem Relacional Star Schema
 
 Análise Exploratória de Dados
 
  Sobre o Projeto
 
-Este dashboard foi desenvolvido como projeto real aplicado à gestão da barbearia, com foco em transformar dados operacionais em informação estratégica para tomada de decisão.
+Este dashboard foi desenvolvido como projeto real aplicado à gestão da barbearia EL PATRÓN, com foco em transformar dados operacionais em informação estratégica para tomada de decisão.
 
