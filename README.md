@@ -185,4 +185,4 @@ A imagem do dashboard foi atualizada com a captura enviada. O cartão intitulado
 
 ## Tecnologias verificadas
 
-Power BI, Power Query (M), DAX e modelagem relacional.
+Power BI, Power Query, DAX e modelagem relacional.
