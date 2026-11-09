@@ -179,7 +179,9 @@ Repetição dentro da seleção não equivale à retenção entre meses. A exist
 - [Capa](1%20-%20Capa.png).
 - [Imagem do dashboard](2-%20Dashboard.png).
 
-As imagens existentes não foram atualizadas nesta revisão do README. Seus indicadores podem refletir uma versão anterior do relatório; os valores documentados acima correspondem ao modelo revisado.
+A imagem do dashboard foi atualizada com a captura enviada. O cartão intitulado “Lucro Líquido” na imagem corresponde ao resultado gerencial descrito neste README, sem estimativa de impostos não cadastrados.
+
+![Dashboard financeiro da El Patron Barbearia](2-%20Dashboard.png)
 
 ## Tecnologias verificadas
 
