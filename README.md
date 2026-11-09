@@ -78,6 +78,54 @@ Agosto e fevereiro têm cobertura parcial. As medidas de comparação equivalent
 
 O histórico permite acompanhar variações mensais, mas não comprova um padrão recorrente de sazonalidade anual.
 
+## Insights para tomada de decisão
+
+As observações abaixo consideram a base de **20/08/2025 a 16/02/2026**. As ações são sugestões para investigação e acompanhamento, não resultados já obtidos.
+
+### 1. Queda de receita na comparação equivalente mais recente
+
+Até 16 de fevereiro, o faturamento foi de **R$ 26.497,00**, contra **R$ 28.342,00** entre 1º e 16 de janeiro: queda de **6,51%**.
+
+**Decisão sugerida:** acompanhar atendimentos e ticket médio no mesmo intervalo para identificar se a redução veio de menor movimento ou menor valor por venda. Evitar comparar fevereiro parcial com janeiro inteiro.
+
+### 2. Distribuição dos atendimentos entre os profissionais
+
+Felipe realizou **44,03% dos atendimentos**, seguido por Thiago, com **30,77%**, e Guilherme, com **25,20%**.
+
+**Decisão sugerida:** conferir disponibilidade e ocupação das agendas antes de redistribuir clientes. A diferença de volume, isoladamente, não comprova menor produtividade dos demais profissionais.
+
+### 3. Volume de atendimentos e ticket são indicadores diferentes
+
+Guilherme apresenta a maior receita média de serviços por atendimento na base analisada:
+
+| Barbeiro | Receita média de serviços por atendimento |
+|---|---:|
+| Guilherme Ramos | R$ 70,83 |
+| Thiago Augusto | R$ 68,70 |
+| Felipe Mageste | R$ 68,00 |
+
+**Decisão sugerida:** comparar os serviços realizados por cada profissional para entender essa diferença e avaliar oportunidades de oferecer serviços complementares.
+
+### 4. Produtos têm participação relevante na receita
+
+As vendas de produtos geraram **R$ 101.242,00**, aproximadamente **33,95% do faturamento total**. O custo cadastrado dos itens vendidos foi de **R$ 34.116,00**, restando **R$ 67.126,00 antes de gastos fixos e outros encargos**.
+
+**Decisão sugerida:** acompanhar quantidade vendida e margem por produto para orientar reposição e divulgação. Faturamento isolado não é suficiente para definir quais produtos priorizar.
+
+### 5. Cada atendimento gera, em média, 1,10 serviço
+
+Foram **3.137 unidades de serviços em 2.857 atendimentos**, equivalentes a aproximadamente **1,10 serviço por atendimento**.
+
+**Decisão sugerida:** avaliar combinações de serviços e acompanhar se aumentam a receita por atendimento sem comprometer a margem ou o tempo disponível na agenda.
+
+### 6. Resultado gerencial e custos devem ser acompanhados juntos
+
+Na base completa, o resultado gerencial foi de **R$ 132.837,00**, com margem de **44,55%**, após gastos fixos, comissões e custo dos produtos vendidos.
+
+**Decisão sugerida:** acompanhar mensalmente receita, custos e margem em conjunto. O resultado não inclui impostos não cadastrados. Para comparar barbeiros, usar a margem de contribuição, pois os gastos fixos ainda não têm rateio.
+
+**Prioridades de acompanhamento:** entender a queda de fevereiro, conferir a ocupação das agendas e analisar quais serviços e produtos mais contribuem para o resultado.
+
 ## Modelagem e organização
 
 - `fVendas_servicos`: registros de vendas, quantidades de produtos e serviços e valores calculados.
