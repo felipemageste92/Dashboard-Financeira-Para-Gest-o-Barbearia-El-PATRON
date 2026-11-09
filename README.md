@@ -1,183 +1,186 @@
-# Dashboard-Financeira-Para-Gest-o-Barbearia-El-PATRON
-Dashboard financeiro desenvolvido no Power BI para análise estratégica da El Patron Barbearia. O projeto consolida KPIs como faturamento, lucro, margem, ticket médio e desempenho por barbeiro, utilizando modelagem de dados e DAX para transformar dados operacionais em insights que apoiam a tomada de decisão.
+# Dashboard Financeiro — El Patron Barbearia
+
+Dashboard desenvolvido no Power BI para acompanhar faturamento, gastos, resultado gerencial, ticket médio e desempenho por barbeiro.
 
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![Data Analytics](https://img.shields.io/badge/Data_Analytics-0078D4?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Trabalhando-brightgreen?style=for-the-badge)
+![DAX](https://img.shields.io/badge/DAX-0078D4?style=for-the-badge)
 
+## Base analisada
 
+Valores conferidos no modelo aberto do Power BI, considerando toda a base, sem filtros comerciais ou de período.
 
-📊 Dashboard Financeiro – El Patron Barbearia
-📌 Visão Geral
+- **Período com vendas:** 20/08/2025 a 16/02/2026.
+- **Vendas distintas:** 4.058.
+- **Atendimentos com serviço:** 2.857.
+- **Unidades de serviços:** 3.137.
+- **Unidades de produtos vendidas:** 2.396.
+- **Clientes distintos com serviço:** 110.
 
-Projeto de Business Intelligence desenvolvido no Power BI com foco em análise financeira e operacional da barbearia El Patron.
+Uma venda com serviço representa um atendimento. Um atendimento pode conter mais de uma unidade de serviço. Compras somente de produtos entram nas vendas, mas não nos atendimentos. Clientes distintos, atendimentos e serviços são contagens diferentes.
 
-O objetivo do dashboard é fornecer uma visão estratégica da performance do negócio, permitindo acompanhamento de faturamento, lucro, margem, produtividade por barbeiro, sazonalidade de clientes e eficiência operacional.
+## Indicadores financeiros
 
-🎯 Objetivos do Projeto
+| Indicador | Valor na base completa |
+|---|---:|
+| Faturamento de produtos e serviços | R$ 298.172,00 |
+| Gastos fixos cadastrados | R$ 32.754,00 |
+| Comissão dos barbeiros | R$ 98.465,00 |
+| Custo dos produtos vendidos | R$ 34.116,00 |
+| Total de gastos, comissões e custo dos produtos | R$ 165.335,00 |
+| Lucro Total — resultado gerencial | R$ 132.837,00 |
+| Margem de Lucro | 44,55% |
+| Ticket Médio Geral — por venda | R$ 73,48 |
+| Ticket Médio Serviço — por atendimento | R$ 68,93 |
 
-✔ Monitorar KPIs financeiros essenciais
-✔ Avaliar desempenho individual dos barbeiros
-✔ Identificar tendências mensais de serviços e clientes
-✔ Analisar margem de lucro e estrutura de custos
-✔ Apoiar tomada de decisão baseada em dados
+O resultado gerencial desconta os gastos fixos registrados, a comissão e o custo dos produtos vendidos. Não inclui estimativa de impostos não cadastrados. A comissão preserva a regra do modelo: **50% do faturamento de serviços**.
 
-🛠️ Etapas do Desenvolvimento
-1️- Coleta e Estruturação dos Dados
+### Custo dos produtos vendidos
 
-Os dados utilizados incluem:
+Calculado pela quantidade vendida multiplicada pelo custo unitário de `dProdutos[Custo]`. Representa o custo dos itens vendidos, não um registro de pagamento de compras de estoque.
+
+| Produto | Custo unitário | Quantidade vendida | Custo total |
+|---|---:|---:|---:|
+| Minoxidil 15% | R$ 11,00 | 453 | R$ 4.983,00 |
+| Pomada Matte | R$ 12,00 | 375 | R$ 4.500,00 |
+| Pomada Brilho | R$ 12,00 | 409 | R$ 4.908,00 |
+| Pomada Teia | R$ 12,00 | 385 | R$ 4.620,00 |
+| Balm | R$ 18,00 | 383 | R$ 6.894,00 |
+| Pós Barba | R$ 21,00 | 391 | R$ 8.211,00 |
+| **Total** | | **2.396** | **R$ 34.116,00** |
+
+Esse custo já compõe `Total de Gastos`; não deve ser somado novamente no cálculo do resultado.
+
+## Desempenho por barbeiro
+
+| Barbeiro | Faturamento de produtos e serviços | Atendimentos | Participação nos atendimentos |
+|---|---:|---:|---:|
+| Felipe Mageste | R$ 131.906,00 | 1.258 | 44,03% |
+| Thiago Augusto | R$ 89.344,00 | 879 | 30,77% |
+| Guilherme Ramos | R$ 76.922,00 | 720 | 25,20% |
+| **Total** | **R$ 298.172,00** | **2.857** | **100,00%** |
+
+Felipe apresenta o maior faturamento e volume de atendimentos no período. Esses números isoladamente não demonstram diferenças de disponibilidade de agenda, capacidade ou qualidade de atendimento.
+
+## Evolução mensal
+
+| Mês | Faturamento | Atendimentos |
+|---|---:|---:|
+| Agosto/2025 — a partir do dia 20 | R$ 15.850,00 | 158 |
+| Setembro/2025 | R$ 53.929,00 | 521 |
+| Outubro/2025 | R$ 50.933,00 | 480 |
+| Novembro/2025 | R$ 48.649,00 | 471 |
+| Dezembro/2025 | R$ 47.835,00 | 473 |
+| Janeiro/2026 | R$ 54.479,00 | 497 |
+| Fevereiro/2026 — até o dia 16 | R$ 26.497,00 | 257 |
+
+Agosto e fevereiro têm cobertura parcial. As medidas de comparação equivalente permitem comparar fevereiro até 16/02 com janeiro até 16/01: **R$ 26.497,00 contra R$ 28.342,00**, variação de **−6,51%**.
+
+O histórico permite acompanhar variações mensais, mas não comprova um padrão recorrente de sazonalidade anual.
+
+## Modelagem e organização
+
+- `fVendas_servicos`: registros de vendas, quantidades de produtos e serviços e valores calculados.
+- `dClientes`, `dBarbeiros`, `dProdutos` e `dServicos`: dimensões relacionadas às vendas.
+- `dCalendario`: calendário diário contínuo, relacionado às vendas e às despesas por data de pagamento.
+- `dGastos_fixos_1`: despesas cadastradas.
+- `Medidas DAX`: medidas com descrições e organização em pastas por assunto.
 
-Data do atendimento
+O relacionamento direto entre despesas e vendas foi removido. As duas tabelas usam o calendário para filtrar o período, evitando que a seleção de um barbeiro reduza indevidamente os gastos fixos registrados.
 
-Tipo de serviço
+As pastas abrangem atendimentos e serviços, faturamento, médias e tickets, evolução no tempo, gastos e lucro, participações, contagens de tipos, equipe, produtividade e clientes.
 
-Valor do serviço
+## Exemplos de medidas DAX
 
-Custo / Valor do Produto
+### Vendas e atendimentos
 
-Dados dos Clientes
+```dax
+Qtd Vendas =
+CALCULATE(
+    DISTINCTCOUNT(fVendas_servicos[id_venda]),
+    KEEPFILTERS(NOT ISBLANK(fVendas_servicos[id_venda]))
+)
 
-
-
-Foi realizada organização, tratamento e padronização dos dados para garantir integridade, consistência e confiabilidade analítica.
-
-
-2️- Modelagem de Dados
-
-Aplicação de boas práticas de modelagem:
-
-Modelo relacional estruturado
-
-Tabela fato de vendas/atendimentos
-
-Tabela dimensão de datas (Calendário)
-
-Relacionamentos 1:N
-
-Uso de DAX para métricas financeiras
-
-Exemplo de medidas criadas:
-
-Faturamento Total = SUM(fVendas_servicos[Faturamento Produto]) + [Soma Faturamento Serviço]
-Lucro Total = [Faturamento Total Produto/Serviço] * 0.9 - [Total de Gastos]
-Margem de Lucro = DIVIDE([Lucro Total], [Faturamento Total Produto/Serviço], 0)
-Ticket Médio = DIVIDE([Faturamento Total Produto/Serviço], [Qtd Serviços], 0)
-
-3️- Construção dos KPIs Estratégicos
-
-📈 Indicadores Principais:
-
-Faturamento Total: R$ 298,17 Mil
-
-Lucro Total: R$ 174,78 Mil
-
-Margem de Lucro: 58,62%
-
-Ticket Médio: R$ 73,48
-
-Total de Gastos: R$ 123,39 Mil
-
-Esses indicadores permitem avaliar sustentabilidade financeira, rentabilidade e eficiência operacional.
-
-4️- Análises Desenvolvidas
-📅 Quantidade de Serviços e Clientes por Mês
-
-A análise temporal revelou comportamento sazonal relevante no volume de atendimentos.
-
-Em outubro de 2025 houve uma retração no número de clientes.
-
-Já em novembro de 2025 ocorreu recuperação consistente do fluxo.
-
-A barbearia saiu de 176 clientes mensais e atingiu um pico de 575 atendimentos, mantendo estabilidade nos meses seguintes.
-
-Em fevereiro de 2026 ocorreu nova queda, reduzindo o volume para 285 clientes.
-
-Insight estratégico:
-
-✔ Existe padrão claro de sazonalidade.
-✔ O negócio demonstra forte capacidade de crescimento (176 → 575 clientes).
-✔ Períodos de retração exigem ações estratégicas (campanhas, fidelização, promoções).
-✔ Monitoramento mensal via BI permite antecipar movimentos de queda.
-
-💈 Faturamento por Barbeiro
-
-Felipe Mageste – R$ 131,91 Mil
-
-Thiago Augusto – R$ 89,34 Mil
-
-Guilherme Ramos – R$ 76,92 Mil
-
-Insight:
-
-✔ Concentração de receita em um profissional.
-✔ Oportunidade de balanceamento de agenda.
-✔ Possibilidade de replicar estratégias comerciais do barbeiro com maior performance.
-
-📊 % de Atendimento por Barbeiro
-
-Insight:
-
-✔ Distribuição desigual de atendimentos.
-✔ Impacto potencial em produtividade e motivação.
-✔ Necessidade de otimização na gestão de agenda.
-
-🏆 Produto Carro-Chefe
-
-O serviço de Corte é o mais rentável.
-
-Insight:
-
-✔ Possibilidade de criação de combos estratégicos.
-✔ Estratégias de upsell com serviços complementares.
-✔ Potencial aumento de margem média por cliente.
-
-5️- Filtros e Interatividade
-
-Segmentação por período (data inicial e final)
-
-Análise dinâmica conforme intervalo selecionado
-
-Experiência visual moderna com foco em clareza e contraste
-
-Tooltips com métricas percentuais e comparativos
-
-📊 Principais Insights Estratégicos
-
-✔ Margem de lucro saudável (58,62%)
-✔ Alta dependência de um único barbeiro
-✔ Forte crescimento histórico de clientes
-✔ Comportamento sazonal identificado
-✔ Queda pontual em fevereiro de 2026
-✔ Ticket médio consistente
-✔ Estrutura de custos controlada
-
-🚀 Possíveis Melhorias Futuras
-
-Implementação de análise preditiva
-
-Dashboard de metas mensais
-
-Análise de retenção de clientes
-
-Indicador de taxa de retorno
-
-Comparativo Year over Year (YoY)
-
-Clusterização de clientes por comportamento
-
-💡 Tecnologias Utilizadas
-
-Excel
-
-Power BI
-
-DAX
-
-Modelagem Relacional Star Schema
-
-Análise Exploratória de Dados
-
- Sobre o Projeto
-
-Este dashboard foi desenvolvido como projeto real aplicado à gestão da barbearia EL PATRÓN, com foco em transformar dados operacionais em informação estratégica para tomada de decisão.
-
+QTD DE ATENDIMENTOS =
+CALCULATE(
+    [Qtd Vendas],
+    KEEPFILTERS(fVendas_servicos[quantidade_servico] > 0)
+)
+```
+
+### Faturamento e tickets
+
+```dax
+Faturamento Total Produto/Serviço =
+SUM(fVendas_servicos[Faturamento Produto])
+    + [Soma Faturamento Serviço]
+
+Ticket Médio Geral =
+DIVIDE(
+    [Faturamento Total Produto/Serviço],
+    [Qtd Vendas]
+)
+
+Receita de Serviços por Atendimento =
+DIVIDE(
+    [Faturamento Serviços],
+    [QTD DE ATENDIMENTOS]
+)
+```
+
+### Gastos, lucro e margem
+
+```dax
+Gasto com Produtos Vendidos =
+SUM(fVendas_servicos[Custo Total Produtos]) + 0
+
+Total de Gastos =
+[Gastos Fixos]
+    + [Comissao Barbeiros]
+    + [Custo dos Produtos Vendidos]
+    + 0
+
+Lucro Total =
+[Faturamento Total Produto/Serviço] - [Total de Gastos] + 0
+
+Margem de Lucro =
+DIVIDE(
+    [Lucro Total],
+    [Faturamento Total Produto/Serviço],
+    0
+)
+
+Margem de Contribuição =
+[Faturamento Total Produto/Serviço]
+    - [Comissao Barbeiros]
+    - [Custo dos Produtos Vendidos]
+```
+
+## Análises adicionais disponíveis no modelo
+
+- Faturamento e atendimentos do mês anterior.
+- Comparação com o mesmo trecho do mês anterior, com validação de seleção contínua desde o dia 1.
+- Acumulados no mês e no ano, limitados à última venda da base.
+- Participação de receita e atendimentos por barbeiro, preservando o período selecionado.
+- Ranking de atendimentos, atendimentos por dia ativo e serviços por atendimento.
+- Clientes com dois ou mais atendimentos dentro do período selecionado e seu percentual entre clientes com serviço.
+
+Repetição dentro da seleção não equivale à retenção entre meses. A existência dessas medidas não significa que todos os visuais de uma segunda página já tenham sido construídos.
+
+## Limitações de interpretação
+
+- **Sem rateio de gastos fixos:** ao filtrar um barbeiro, `Lucro Total` e `Margem de Lucro` descontam todos os gastos fixos da barbearia no período. Para comparar profissionais antes dessas despesas, usar `Margem de Contribuição` e `% Margem de Contribuição`. Os lucros individuais não devem ser somados como parcelas do lucro geral.
+- **Preços e custos de cadastro:** receitas e custos são calculados com os valores cadastrados nas dimensões. Não há preço ou custo histórico por venda nessas fórmulas.
+- **Despesas por pagamento:** os gastos seguem a data de pagamento registrada, sem apropriação mensal automática por competência.
+- **Períodos parciais:** agosto/2025 e fevereiro/2026 não representam meses completos de vendas.
+- **Fontes de dados:** foi identificado um caminho de CSV ausente no ambiente de origem. O calendário foi tornado independente desse arquivo; a disponibilidade das demais fontes para uma atualização completa precisa ser verificada.
+
+## Arquivos do repositório
+
+- [Capa](1%20-%20Capa.png).
+- [Imagem do dashboard](2-%20Dashboard.png).
+
+As imagens existentes não foram atualizadas nesta revisão do README. Seus indicadores podem refletir uma versão anterior do relatório; os valores documentados acima correspondem ao modelo revisado.
+
+## Tecnologias verificadas
+
+Power BI, Power Query (M), DAX e modelagem relacional.
