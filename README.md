@@ -85,7 +85,7 @@ O histórico permite acompanhar variações mensais, mas não comprova um padrã
 - `dGastos_fixos_1`: despesas cadastradas.
 - `Medidas DAX`: medidas com descrições e organização em pastas por assunto.
 
-O relacionamento direto entre despesas e vendas foi removido. As duas tabelas usam o calendário para filtrar o período, evitando que a seleção de um barbeiro reduza indevidamente os gastos fixos registrados.
+Despesas e Vendas as duas tabelas usam o calendário para filtrar o período, evitando que a seleção de um barbeiro reduza indevidamente os gastos fixos registrados.
 
 As pastas abrangem atendimentos e serviços, faturamento, médias e tickets, evolução no tempo, gastos e lucro, participações, contagens de tipos, equipe, produtividade e clientes.
 
