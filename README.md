@@ -128,6 +128,8 @@ Na base completa, o resultado gerencial foi de **R$ 132.837,00**, com margem de 
 
 ## Modelagem e organização
 
+![Relacionamentos entre as tabelas no Power BI](3-%20Relacionamentos.png)
+
 - `fVendas_servicos`: registros de vendas, quantidades de produtos e serviços e valores calculados.
 - `dClientes`, `dBarbeiros`, `dProdutos` e `dServicos`: dimensões relacionadas às vendas.
 - `dCalendario`: calendário diário contínuo, relacionado às vendas e às despesas por data de pagamento.
@@ -227,6 +229,7 @@ Repetição dentro da seleção não equivale à retenção entre meses. A exist
 
 - [Capa](1%20-%20Capa.png).
 - [Imagem do dashboard](2-%20Dashboard.png).
+- [Modelo de relacionamentos](3-%20Relacionamentos.png).
 
 A imagem do dashboard foi atualizada com a captura enviada. O cartão intitulado “Lucro Líquido” na imagem corresponde ao resultado gerencial descrito neste README, sem estimativa de impostos não cadastrados.
 
