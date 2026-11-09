@@ -73,7 +73,7 @@ Lucro Total: R$ 174,78 Mil
 
 Margem de Lucro: 58,62%
 
-Ticket Médio: R$ 95,05
+Ticket Médio: R$ 73,48
 
 Total de Gastos: R$ 123,39 Mil
 
